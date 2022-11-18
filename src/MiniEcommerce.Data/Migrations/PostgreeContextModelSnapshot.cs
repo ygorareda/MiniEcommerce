@@ -50,7 +50,7 @@ namespace MiniEcommerce.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Customer", (string)null);
+                    b.ToTable("Customer");
                 });
 
             modelBuilder.Entity("MiniEcommerce.Domain.Entities.CustomerPassword", b =>
@@ -78,7 +78,7 @@ namespace MiniEcommerce.Data.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("CustomerPassword", (string)null);
+                    b.ToTable("CustomerPassword");
                 });
 
             modelBuilder.Entity("MiniEcommerce.Domain.Entities.Order", b =>
@@ -109,7 +109,7 @@ namespace MiniEcommerce.Data.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Order", (string)null);
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("MiniEcommerce.Domain.Entities.OrderItem", b =>
@@ -141,7 +141,7 @@ namespace MiniEcommerce.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderItem", (string)null);
+                    b.ToTable("OrderItem");
                 });
 
             modelBuilder.Entity("MiniEcommerce.Domain.Entities.Product", b =>
@@ -171,7 +171,7 @@ namespace MiniEcommerce.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Product", (string)null);
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("MiniEcommerce.Domain.Entities.CustomerPassword", b =>

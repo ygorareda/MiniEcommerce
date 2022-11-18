@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using MiniEcommerce.Domain.Interfaces.Service;
 
 namespace MiniEcommerce.Api.Controllers
 {
@@ -12,22 +13,21 @@ namespace MiniEcommerce.Api.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IProductService _productService;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IProductService productService)
         {
             _logger = logger;
+            _productService = productService;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<IActionResult> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+
+            var teste = await _productService.GetByIdAsync(1);
+
+            return Ok(teste);
         }
     }
 }

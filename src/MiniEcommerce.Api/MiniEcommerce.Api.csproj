@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MiniEcommerce.CrossCutting\MiniEcommerce.CrossCutting.csproj" />
     <ProjectReference Include="..\MiniEcommerce.Data\MiniEcommerce.Data.csproj" />
     <ProjectReference Include="..\MiniEcommerce.Domain\MiniEcommerce.Domain.csproj" />
   </ItemGroup>

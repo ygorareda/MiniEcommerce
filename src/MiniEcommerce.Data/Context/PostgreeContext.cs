@@ -12,7 +12,7 @@ namespace MiniEcommerce.Data.Context
     public class PostgreeContext : DbContext
     {
         private readonly IConfiguration _configuration;
-        public PostgreeContext( IConfiguration configuration)
+        public PostgreeContext(IConfiguration configuration)
         {
             _configuration = configuration;
         }

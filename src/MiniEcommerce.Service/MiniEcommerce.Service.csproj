@@ -10,4 +10,8 @@
     <Folder Include="Service\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MiniEcommerce.Domain\MiniEcommerce.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
