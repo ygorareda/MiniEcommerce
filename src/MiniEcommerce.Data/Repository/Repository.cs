@@ -21,29 +21,40 @@ namespace MiniEcommerce.Data.Repository
             dbSet = _context.Set<T>();
         }
 
-        public Task DeleteAsync(T item)
-        {
-            throw new NotImplementedException();
-        }
 
         public async Task<T> GetByIdAsync(int id)
         {
             return await dbSet.SingleOrDefaultAsync(it => it.Id.Equals(id));
         }
 
-        public IList<Task<T>> GetByIdsAsync(IList<int> ids)
+        public async Task<IList<T>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await dbSet.ToListAsync();
         }
 
-        public Task<T> InsertAsync(T item)
+        public async Task InsertAsync(T item)
         {
-            throw new NotImplementedException();
+            item.CreatedAt = DateTime.UtcNow;
+            item.UpdatedAt = DateTime.UtcNow;
+
+            await dbSet.AddAsync(item);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<T> UpdateAsync(T item)
+        public async Task UpdateAsync(T item)
         {
-            throw new NotImplementedException();
+            item.CreatedAt = DateTime.UtcNow;
+            item.UpdatedAt = DateTime.UtcNow;
+            dbSet.Update(item);
+
+            await _context.SaveChangesAsync();
+
+        }
+        public async Task DeleteAsync(int id)
+        {
+            T item = await dbSet.SingleOrDefaultAsync(query => query.Id.Equals(id));
+            dbSet.Remove(item);
+            await _context.SaveChangesAsync();
         }
     }
 }

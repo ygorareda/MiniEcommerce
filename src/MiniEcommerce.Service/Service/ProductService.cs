@@ -19,9 +19,16 @@ namespace MiniEcommerce.Service.Service
         }
 
 
-        public Task DeleteAsync(Product item)
+        public async Task DeleteByIdAsync(int id)
         {
-            throw new NotImplementedException();
+
+            await _repository.DeleteAsync(id);
+        }
+
+        public async Task<IList<Product>> GetAllAsync()
+        {
+            return await _repository.GetAllAsync();
+
         }
 
         public async Task<Product> GetByIdAsync(int id)
@@ -29,19 +36,14 @@ namespace MiniEcommerce.Service.Service
             return await _repository.GetByIdAsync(id);
         }
 
-        public IList<Task<Product>> GetByIdsAsync(IList<int> ids)
+        public async Task InsertAsync(Product item)
         {
-            throw new NotImplementedException();
+            await _repository.InsertAsync(item);
         }
 
-        public Task<Product> InsertAsync(Product item)
+        public async Task UpdateAsync(Product item)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<Product> UpdateAsync(Product item)
-        {
-            throw new NotImplementedException();
+           await _repository.UpdateAsync(item);
         }
     }
 }

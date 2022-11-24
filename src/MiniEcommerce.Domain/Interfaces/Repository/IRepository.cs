@@ -9,9 +9,9 @@ namespace MiniEcommerce.Domain.Interfaces.Repository
     public interface IRepository<T> where T : class
     {
         public Task<T> GetByIdAsync(int id);
-        public IList<Task<T>> GetByIdsAsync(IList<int> ids);
-        public Task<T> InsertAsync(T item);
-        public Task<T> UpdateAsync(T item);
-        public Task DeleteAsync(T item);
+        public Task<IList<T>> GetAllAsync();
+        public Task InsertAsync(T item);
+        public Task UpdateAsync(T item);
+        public Task DeleteAsync(int id);
     }
 }

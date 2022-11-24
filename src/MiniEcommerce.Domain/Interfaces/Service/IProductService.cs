@@ -10,9 +10,9 @@ namespace MiniEcommerce.Domain.Interfaces.Service
     public interface IProductService
     {
         public Task<Product> GetByIdAsync(int id);
-        public IList<Task<Product>> GetByIdsAsync(IList<int> ids);
-        public Task<Product> InsertAsync(Product item);
-        public Task<Product> UpdateAsync(Product item);
-        public Task DeleteAsync(Product item);
+        public Task<IList<Product>> GetAllAsync();
+        public Task InsertAsync(Product item);
+        public Task UpdateAsync(Product item);
+        public Task DeleteByIdAsync(int id);
     }
 }
