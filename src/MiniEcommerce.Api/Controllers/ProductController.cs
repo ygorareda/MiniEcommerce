@@ -18,6 +18,9 @@ namespace MiniEcommerce.Api.Controllers
         public async Task<IActionResult> GetAll()
         {
 
+            //throw new BadHttpRequestException("teste erro");
+            throw new Exception("teste erro");
+
             var teste = await _productService.GetAllAsync();
 
             return Ok(teste);

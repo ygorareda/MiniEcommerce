@@ -1,3 +1,4 @@
+using MiniEcommerce.Api.Middlewares;
 using MiniEcommerce.CrossCutting.DepedencyInjection;
 using MiniEcommerce.Data;
 
@@ -24,6 +25,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 
 app.MapControllers();
 
